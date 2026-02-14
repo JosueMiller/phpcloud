@@ -1,14 +1,3 @@
-<?php
-require_once "config.php";
-
-$sql = "SELECT a.nombres, a.dni, c.nombre AS curso,c.creditos, m.fecha_matricula
-        FROM matriculas m
-        JOIN alumnos a ON m.alumno_id = a.id
-        JOIN cursos c ON m.curso_id = c.id";
-
-$resultado = $conexion->query($sql);
-?>
-
 <!DOCTYPE html>
 <html>
 
@@ -57,28 +46,14 @@ $resultado = $conexion->query($sql);
             <th>Fecha Matrícula</th>
         </tr>
 
-        <?php if ($resultado->num_rows > 0): ?>
-            <?php while ($fila = $resultado->fetch_assoc()): ?>
-                <tr>
-                    <td><?= htmlspecialchars($fila['dni']) ?></td>
-                    <td><?= htmlspecialchars($fila['nombres']) ?></td>
-                    <td><?= htmlspecialchars($fila['curso']) ?></td>
-                    <td><?= htmlspecialchars($fila['creditos']) ?></td>
-                    <td><?= htmlspecialchars($fila['fecha_matricula']) ?></td>
-                </tr>
-            <?php endwhile; ?>
-        <?php else: ?>
+       
             <tr>
                 <td colspan="4">No hay registros</td>
             </tr>
-        <?php endif; ?>
+      
 
     </table>
 
 </body>
 
 </html>
-
-<?php
-$conexion->close();
-?>
