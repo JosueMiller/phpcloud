@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-$host = "34.23.27.151";
+$host = "proyecto-demo-cloudsql-487413";
 $dbname = "db_cloud";
 $username = "usermysql";
 $password = "Jm2026*+";
@@ -20,5 +20,6 @@ try {
 } catch (PDOException $e) {
     die("Error de conexión: " . $e->getMessage());
 }
+
 
 
